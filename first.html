@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full stack application</title>
+    <link rel="stylesheet" href="/output/output.css">
+    <script src="script.js" defer></script>
+    <!--media query <640-->
+    <style>
+        @media(max-width:640px){
+         h2{ 
+              font-size:larger;
+
+           }
+        p{
+            font-size:larger;
+        }
+        section{
+          justify-content : flex-start;
+        }
+       table {
+        width: 100% ;
+       }
+
+         form {
+         width: 50% ;
+         height: 50%;
+         padding: 1rem;
+         font-size: 0.9rem;
+
+            }
+
+            /*Horizontal scrolling when <640px*/
+            .table-container {  
+             overflow-x: auto;
+            width: 60%;
+            height:50%
+              }
+    }
+    </style>
+</head>
+<body class="bg-[url('/public/bg.jpg')] bg-cover bg-center h-screen">
+    <header><h2 class="text-5xl font-bold p-4 bg-zinc-400 sm:text-3xl md:text-5xl">Full Stack Development course</h2>
+            <h2 class="text-5xl font-semibold text-center p-5 sm:text-3xl sm:text-left md:text-5xl md:text-center">Registration</h2></header>
+       <section class="p-5">
+        <p class="text-2xl p-4 font-semibold text-center sm:text-xl sm:text-left md:text-2xl md:text-current">
+        Welcome! Enroll in the full stack course.
+        </p>   
+    </section>     
+
+     <section class="flex justify-center sm:justify-start md:justify-center">
+    <table>
+        <tr>
+            <td>
+                <!--form-->
+                <form id="form" class="border-2 p-5 rounded-lg m-7 w-100 h-110" onsubmit="event.preventDefault();clicked();" autocomplete="off">
+                    <div class="p-3">
+                        <label class="text-xl font-bold">Student Name*:
+                            <input class="border-2 rounded-lg" type="text" name="studentname" id="studentname"> 
+                        </label>
+                    </div>
+                    <div class="p-3">
+                        <label class="text-xl font-bold p-3">Student Id*:<br>
+                            <input class="border-2 rounded-lg" type="text" name="studentid" id="studentid"> 
+                        </label>
+                    </div>
+                    <div class="p-3">
+                        <label class="text-xl font-bold p-3">Email*:<br>
+                            <input class="border-2 rounded-lg" type="text" name="email" id="email"> 
+                        </label>
+                    </div>
+                    <div class="p-2">
+                        <label class="text-xl font-bold p-3">Contact Number*:<br>
+                            <input class="border-2 rounded-lg" type="text" name="contactnumber" id="contactnumber"> 
+                        </label>
+                    </div>
+                    <div class="submitForm">
+                        <input class="border-2 rounded-lg m-5 w-30 text-xl font-bold bg-zinc-400" type="submit" value="submit">
+                        <input class="border-2 rounded-lg m-5 w-30 text-xl font-bold bg-zinc-400" type="reset" name="reset">
+                    </div>
+                </form>
+            </td>
+            </tr>
+            <tr>
+            <td>
+                <!--Registered Users-->
+                <div class="table-container border-0 w-100 h-100 rounded-lg sm:w-80 md:w-100 " >
+                <table class="table" id="table">
+                    <thead class="border-2">
+                        <tr class="text-xl" >
+                            <th class="p-5 bg-zinc-400">Student Name</th>
+                            <th class="p-5 bg-zinc-400">Student Id</th>
+                            <th class="p-5 bg-zinc-400">Email</th>
+                            <th class="p-5 bg-zinc-400">Contact Number</th>
+                            <th class="p-5 m-4 bg-zinc-400"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-xl tbody1 font-bold p-3 border-2 rounded-lg">
+                        <!--Vertical Scrolling-->
+                      <script>
+                         var table= document.getElementById("table");
+                             table.style.width= "100%";
+                                var scrollDiv = document.createElement("div");
+                                scrollDiv.style.width= "650px"
+                                scrollDiv.style.height = "300px";          
+                                 scrollDiv.style.overflowY = "auto"; 
+                                 //scrollDiv.style.overflowX = "hidden";      
+                                 scrollDiv.style.border = "1px solid #ccc"; 
+                                     table.parentNode.insertBefore(scrollDiv, table);
+                                     scrollDiv.appendChild(table);
+                      </script>
+                    </tbody>
+                    
+                </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</section>
+</body>
+</html>
